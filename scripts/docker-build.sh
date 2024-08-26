@@ -1,17 +1,12 @@
 #!/bin/bash
 
-DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-
-. "$DIR/include/incl.sh"
+. "/workspaces/repo/.bashrc/incl.sh"
 
 # Проверка, что был передан аргумент
 if [ $# -lt 1 ]; then
   Log "$(Red "Usage: $0 <lang> <project_name>")"
   exit 1
 fi
-
-ROOT=$(pwd)
 
 LANG=$1
 PACKAGE_NAME=$2
@@ -41,8 +36,8 @@ NewLine
 
 # Проверка результата сборки
 if [ $? -eq 0 ]; then
-  Log "Docker image $(Purple $IMAGE_NAME) built $(Green "successfully")!"
+  Log "Docker image $(Purple $IMAGE_NAME) built $(Green "SUCCESSFULLY")!"
 else
-  Log "$(Red "Failed to build Docker image '$IMAGE_NAME'")"
+  Log "Docker image $(Purple $IMAGE_NAME) built $(Red "FAILED")!"
   exit 1
 fi
