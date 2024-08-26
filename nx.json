@@ -5,7 +5,11 @@
   "nxCloudAccessToken": "YWNkNjA0YTAtMTIxMy00NzcxLWFjZGEtMmYzZWYyZDAxZTNjfHJlYWQtd3JpdGU=",
   "namedInputs": {
     "sharedGlobals": [
-      "{workspaceRoot}/.github/workflows/ci.yml"
+      "{workspaceRoot}/.github/workflows/ci.yml",
+      "{workspaceRoot}/go.work"
     ]
-  }
+  },
+  "plugins": [
+    "@nx-go/nx-go"
+  ]
 }
