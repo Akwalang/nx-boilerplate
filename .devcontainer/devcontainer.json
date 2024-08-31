@@ -1,5 +1,5 @@
 {
-	"name": "Golang, Rust, and TypeScript Dev Container",
+	"name": "Golang, Rust, PHP and TypeScript Dev Container",
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 	"features": {
 		"ghcr.io/devcontainers/features/go:1": {},
