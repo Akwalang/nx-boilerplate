@@ -40,3 +40,12 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+# Exclude dev files
+*.dev.sh
+*.dev.go
+*.dev.rs
+*.dev.json
+*.dev.js
+*.dev.ts
+*.dev.php
