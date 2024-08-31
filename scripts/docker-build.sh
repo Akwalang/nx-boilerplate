@@ -2,7 +2,7 @@
 
 . "/workspaces/repo/.bashrc/incl.sh"
 
-# Проверка, что был передан аргумент
+# Check if the required arguments are provided
 if [ $# -lt 1 ]; then
   Log "$(Red "Usage: $0 <lang> <project_name>")"
   exit 1
@@ -15,7 +15,7 @@ DOCKERFILE_NAME="${ROOT}/packages/${LANG}-Dockerfile"
 PACKAGE_DIR="${ROOT}/packages/${PACKAGE_NAME}"
 IMAGE_NAME="${PACKAGE_NAME}_image"
 
-# Перемещение в директорию проекта
+# Move to the project directory
 cd "$PACKAGE_DIR" || { Log "$(Red "Project directory not found!")"; exit 1; }
 
 NewLine
@@ -30,14 +30,13 @@ NewLine
 
 Orange
 docker build --build-arg SOURCE_FOLDER="$PACKAGE_FOLDER" -f "$DOCKERFILE_NAME" -t "$IMAGE_NAME" .
-NoColor
+NoStyle
 
 NewLine
 
-# Проверка результата сборки
 if [ $? -eq 0 ]; then
-  Log "Docker image $(Purple $IMAGE_NAME) built $(Green "SUCCESSFULLY")!"
+  Log "Docker image $(Purple $IMAGE_NAME) built $(Green "successfully")!"
 else
-  Log "Docker image $(Purple $IMAGE_NAME) built $(Red "FAILED")!"
+  Error "Docker image \"$IMAGE_NAME\" built FAILED!"
   exit 1
 fi
