@@ -1,3 +1,3 @@
 Now() {
-  Blue "$(date +"[%Y.%m.%d %T]")"
+  printf "$(date +"[%Y.%m.%d %T]")"
 }
