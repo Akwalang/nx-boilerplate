@@ -10,12 +10,6 @@ ENV PATH=/usr/local/go/bin:$PATH
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH=/root/.cargo/bin:$PATH
 
-# Установка Node.js и npm
-ARG NODE_VERSION=22
-RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
-  && apt-get install -y nodejs \
-  && npm install -g typescript
-
 # Установка дополнительных инструментов и зависимостей
 RUN apt-get update && apt-get install -y \
   build-essential \
@@ -25,9 +19,6 @@ RUN apt-get update && apt-get install -y \
 # Установка необходимых пакетов для разработки на Go, Rust и TypeScript
 RUN go install golang.org/x/tools/gopls@latest
 RUN rustup component add rust-analyzer
-
-# Установка глобального TypeScript
-RUN npm install -g typescript
 
 # Установка редактора кода и других инструментов
 # (зависит от ваших требований)
