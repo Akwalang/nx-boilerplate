@@ -49,3 +49,5 @@ Thumbs.db
 *.dev.js
 *.dev.ts
 *.dev.php
+
+*.log

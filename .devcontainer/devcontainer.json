@@ -10,7 +10,7 @@
 	// "features": {},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "chmod +x /workspaces/repo/.devcontainer/* && bash .devcontainer/init.sh",
+	"postCreateCommand": "chmod +x /workspaces/repo/.devcontainer/* && bash .devcontainer/scripts/init.sh",
 
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
