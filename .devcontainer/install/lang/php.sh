@@ -1,14 +1,31 @@
 #!/bin/bash
 
-Log "$(Purple "PHP") Begin installation"
+LOG_PATH="$(pwd)/.devcontainer/logs/php.log"
 
-sudo dpkg -l | grep php | tee packages.txt
+printf "" > "$LOG_PATH"
 
-# Add Ondrej's PPA
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update > /dev/null
+NAME="php:"
 
-# Install new PHP 8.1 packages
-sudo apt install php8.1 php8.1-cli php8.1-{bz2,curl,mbstring,intl} > /dev/null
+Log "$(Purple "$NAME") Begin installation"
 
-Log "$(Purple "PHP") Installation completed"
+apt-get update >> $LOG_PATH 2>&1
+
+apt-get install -y \
+    lsb-release \
+    ca-certificates \
+    apt-transport-https \
+    software-properties-common \
+    wget >> $LOG_PATH 2>&1
+
+add-apt-repository ppa:ondrej/php -y >> $LOG_PATH 2>&1
+
+apt-get update >> $LOG_PATH 2>&1
+
+apt-get install -y php8.2 php8.2-cli php8.2-fpm php8.2-mbstring php8.2-curl >> $LOG_PATH 2>&1
+
+apt-get clean && rm -rf /var/lib/apt/lists/* >> $LOG_PATH 2>&1
+
+mapfile -t lines <<< $(php -v)
+Log "$(Purple "$NAME") $(Yellow "${lines[0]}")"
+
+Log "$(Purple "$NAME") Installation completed"
