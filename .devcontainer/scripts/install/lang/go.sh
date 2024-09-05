@@ -13,8 +13,6 @@ install_lang_go() {
   local GO_URL="https://golang.org/dl/$GO_TAR"
   local INSTALL_DIR="/usr/local"
 
-  # wget $GO_URL -O /tmp/$GO_TAR 2>&1 | grep -v ".........." &>> $LOG_PATH
-
   wget $GO_URL -O /tmp/$GO_TAR 2>&1 | while IFS= read -r line; do
       if [[ "$line" != *".........."* ]]; then
           echo "$line" >> "$LOG_PATH"
@@ -24,7 +22,7 @@ install_lang_go() {
   tar -C $INSTALL_DIR -xzf /tmp/$GO_TAR &>> $LOG_PATH
 
   go install golang.org/x/tools/gopls@latest 2>&1 | while IFS= read -r line; do
-    Log "$(Purple "$NAME"): $(Yellow "${line/"go: downloading "/""}")"
+    Log "$(Purple "$NAME"): $(Yellow "${line/"go: downloading"/"add"}")"
   done
 
   rm /tmp/$GO_TAR &>> $LOG_PATH

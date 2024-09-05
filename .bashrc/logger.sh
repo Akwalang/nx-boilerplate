@@ -1,3 +1,5 @@
+#!/bin/bash
+
 Log() {
   printf "$(BgBlue "$(Bold " LOG ")") $(Blue "$(Now)") $1\n";
 }

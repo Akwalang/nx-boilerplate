@@ -1,3 +1,5 @@
+#!/bin/bash
+
 NO_STYLE='\e[0m'
 
 NoStyle() {

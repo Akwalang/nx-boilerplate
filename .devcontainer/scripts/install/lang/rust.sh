@@ -19,7 +19,7 @@ install_lang_rust() {
 
   ./rustup component add rust-analyzer 2>&1 | while IFS= read -r line; do
     if [[ "$line" = *"info: installing component"* ]]; then
-      Log "$(Purple "$NAME"): $(Yellow "${line/"info: installing"/"add"}")"
+      Log "$(Purple "$NAME"): $(Yellow "${line/"info: installing component"/"add"}")"
     fi
     echo "$line" >> "$LOG_PATH"
   done
