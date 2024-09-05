@@ -11,25 +11,21 @@ fi
 LANG=$1
 PACKAGE_NAME=$2
 
-DOCKERFILE_NAME="${ROOT}/packages/${LANG}-Dockerfile"
-PACKAGE_DIR="${ROOT}/packages/${PACKAGE_NAME}"
+DOCKER_FILE_PATH="${ROOT}/configs/lang/${LANG}/Dockerfile"
+PACKAGE_DIR="/packages/${PACKAGE_NAME}"
 IMAGE_NAME="${PACKAGE_NAME}_image"
-
-# Move to the project directory
-cd "$PACKAGE_DIR" || { Log "$(Red "Project directory not found!")"; exit 1; }
 
 NewLine
 
 Log "Building Docker image..."
 Log "PROJECT ROOT: $(Purple $ROOT)"
-Log "PACKAGE DIR: $(Purple $PACKAGE_DIR)"
-Log "DOCKERFILE NAME: $(Purple $DOCKERFILE_NAME)"
+Log "DOCKER FILE PATH: $(Purple $DOCKER_FILE_PATH)"
 Log "IMAGE NAME: $(Purple $IMAGE_NAME)"
 
 NewLine
 
-Orange
-docker build --build-arg SOURCE_FOLDER="$PACKAGE_FOLDER" -f "$DOCKERFILE_NAME" -t "$IMAGE_NAME" .
+Yellow
+docker build --build-arg PACKAGE_NAME="$PACKAGE_NAME" -f "$DOCKER_FILE_PATH" -t "$IMAGE_NAME" $ROOT
 NoStyle
 
 NewLine

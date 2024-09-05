@@ -1,9 +1,8 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04
 
-RUN apt-get update && apt-get install -y \
-  build-essential \
-  git \
-  && apt-get clean
+RUN apt-get update \
+  && apt-get install -y wget gnupg2 ca-certificates lsb-release build-essential git \
+    && apt-get clean
 
 COPY . /workspace
 
