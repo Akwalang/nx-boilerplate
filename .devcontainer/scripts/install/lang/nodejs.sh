@@ -15,9 +15,11 @@ install_lang_nodejs() {
 
   npm install -g typescript >> $LOG_PATH 2>&1
 
+  local tscv=$(tsc -v)
+
   Log "$(Purple "$NAME"): $(Yellow "Node.js $(node -v)")"
   Log "$(Purple "$NAME"): $(Yellow "npm v$(npm -v)")"
-  Log "$(Purple "$NAME"): $(Yellow "tsc $(tsc -v)")"
+  Log "$(Purple "$NAME"): $(Yellow "tsc ${tscv/"Version "/"v"}")"
 
   Log "$(Purple "$NAME"): Installation completed"
 }

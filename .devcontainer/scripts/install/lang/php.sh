@@ -28,5 +28,12 @@ install_lang_php() {
   mapfile -t lines <<< $(php -v)
   Log "$(Purple "$NAME"): $(Yellow "${lines[0]}")"
 
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  php composer-setup.php --install-dir=/usr/local/bin --filename=composer >> $LOG_PATH 2>&1
+  php -r "unlink('composer-setup.php');"
+
+  local composer_version=$(composer --version 2>&1 | head -n 1)
+  Log "$(Purple "$NAME"): $(Yellow "$composer_version")"
+
   Log "$(Purple "$NAME"): Installation completed"
 }
