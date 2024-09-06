@@ -3,7 +3,7 @@
 . "/workspaces/repo/.bashrc/incl.sh"
 
 # Check if the required arguments are provided
-if [ $# -lt 1 ]; then
+if [ $# -lt 2 ]; then
   Log "$(Red "Usage: $0 <lang> <project_name>")"
   exit 1
 fi
@@ -24,15 +24,13 @@ Log "IMAGE NAME: $(Purple $IMAGE_NAME)"
 
 NewLine
 
-Yellow
 docker build --build-arg PACKAGE_NAME="$PACKAGE_NAME" -f "$DOCKER_FILE_PATH" -t "$IMAGE_NAME" $ROOT
-NoStyle
-
-NewLine
 
 if [ $? -eq 0 ]; then
+  NewLine
   Log "Docker image $(Purple $IMAGE_NAME) built $(Green "successfully")!"
 else
+  NewLine
   Error "Docker image \"$IMAGE_NAME\" built FAILED!"
   exit 1
 fi
