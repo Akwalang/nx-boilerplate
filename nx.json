@@ -1,6 +1,7 @@
 {
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "repo",
   "defaultBase": "master",
   "nxCloudAccessToken": "YWNkNjA0YTAtMTIxMy00NzcxLWFjZGEtMmYzZWYyZDAxZTNjfHJlYWQtd3JpdGU=",
   "namedInputs": {
