@@ -10,7 +10,7 @@ install_lang_rust() {
 
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y 2>&1 | while IFS= read -r line; do
     if [[ "$line" = *"info: installing component"* ]]; then
-      Log "$(Purple "$NAME"): $(Yellow "${line/"info: installing"/"add"}")"
+      Log "$(Purple "$NAME"): $(Yellow "${line/"info: installing component"/"add"}")"
     fi
     echo "$line" >> "$LOG_PATH"
   done
