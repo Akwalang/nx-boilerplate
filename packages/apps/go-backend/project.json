@@ -1,8 +1,8 @@
 {
-  "name": "nodejs-backend",
+  "name": "go-backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "packages/nodejs-backend",
+  "sourceRoot": "packages/go-backend",
   "tags": [],
   "targets": {
     "build": {
@@ -12,9 +12,9 @@
       }
     },
     "serve": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "@nx-go/nx-go:serve",
       "options": {
-        "main": "node {projectRoot}/src/index.js"
+        "main": "{projectRoot}/cmd/main.go"
       }
     },
     "test": {
@@ -30,7 +30,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "./scripts/docker-build.sh nodejs {projectName}"
+          "./.config/scripts/docker-build.sh go apps {projectName}"
         ],
         "parallel": false
       }

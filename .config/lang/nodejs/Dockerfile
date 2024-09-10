@@ -1,14 +1,15 @@
 FROM node:22-alpine AS build
 
+ARG PACKAGE_TYPE
 ARG PACKAGE_NAME
 
 WORKDIR /app
 
-COPY ./packages/${PACKAGE_NAME}/package*.json ./
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/package*.json ./
 
 RUN npm install
 
-COPY ./packages/${PACKAGE_NAME}/src ./src
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/src ./src
 
 RUN npm run build
 

@@ -30,7 +30,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "./scripts/docker-build.sh php {projectName}"
+          "./.config/scripts/docker-build.sh php apps {projectName}"
         ],
         "parallel": false
       }

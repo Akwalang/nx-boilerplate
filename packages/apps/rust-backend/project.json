@@ -9,7 +9,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "./scripts/docker-build.sh rust {projectName}"
+          "./.config/scripts/docker-build.sh rust apps {projectName}"
         ],
         "parallel": false
       }

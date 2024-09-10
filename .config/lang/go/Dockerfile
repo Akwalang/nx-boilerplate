@@ -1,22 +1,23 @@
 # Build the application from source
 FROM golang:1.22.2 AS build-stage
 
+ARG PACKAGE_TYPE
 ARG PACKAGE_NAME
 
 WORKDIR /app
 
-COPY ./packages/${PACKAGE_NAME}/go.mod ./
-COPY ./packages/${PACKAGE_NAME}/go.sum ./
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/go.mod ./
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/go.sum ./
 
 RUN go mod download
 
-COPY ./packages/${PACKAGE_NAME}/cmd ./cmd
-COPY ./packages/${PACKAGE_NAME}/pkg ./pkg
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/cmd ./cmd
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/pkg ./pkg
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /bin/main ./cmd/main.go
 
 FROM build-stage AS run-test-stage
-RUN go test -v ./packages/${PACKAGE_NAME}/...
+RUN go test -v ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/...
 
 FROM gcr.io/distroless/base-debian11 AS build-release-stage
 

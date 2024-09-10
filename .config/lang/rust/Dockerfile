@@ -1,15 +1,16 @@
 FROM rust:latest AS builder
 
+ARG PACKAGE_TYPE
 ARG PACKAGE_NAME
 
 WORKDIR /app
 
-COPY ./packages/${PACKAGE_NAME}/Cargo.toml ./
-COPY ./packages/${PACKAGE_NAME}/Cargo.lock ./
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/Cargo.toml ./
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/Cargo.lock ./
 
 RUN cargo fetch
 
-COPY ./packages/${PACKAGE_NAME}/ .
+COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/ .
 
 RUN cargo build --release
 
