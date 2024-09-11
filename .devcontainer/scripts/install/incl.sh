@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "/workspaces/repo/.bashrc/incl.sh"
+source "/workspaces/repo/.config/bash/incl.sh"
 
 INSTALL_ROOT="/workspaces/repo/.devcontainer/scripts/install"
 

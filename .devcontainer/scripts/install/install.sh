@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "/workspaces/repo/.bashrc/incl.sh"
+source "/workspaces/repo/.config/bash/incl.sh"
 source "/workspaces/repo/.devcontainer/scripts/install/incl.sh"
 
 Log "Begin Installation"
