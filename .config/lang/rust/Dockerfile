@@ -5,12 +5,12 @@ ARG PACKAGE_NAME
 
 WORKDIR /app
 
-COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/Cargo.toml ./
-COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/Cargo.lock ./
+COPY ./apps/${PACKAGE_TYPE}/${PACKAGE_NAME}/Cargo.toml ./
+COPY ./apps/${PACKAGE_TYPE}/${PACKAGE_NAME}/Cargo.lock ./
 
 RUN cargo fetch
 
-COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/ .
+COPY ./apps/${PACKAGE_TYPE}/${PACKAGE_NAME}/ .
 
 RUN cargo build --release
 

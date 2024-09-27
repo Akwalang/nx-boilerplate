@@ -24,11 +24,17 @@
         "go.goroot": "/usr/local/go"
       },
       "extensions": [
+        // nx
         "nrwl.angular-console",
-        "golang.go",
+
+        // nodejs | typsecript
+        "vscode-twoslash-queries",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "firsttris.vscode-jest-runner",
+
+        // golang
+        "golang.go",
         "ms-vscode-remote.remote-containers",
         "mhutchie.git-graph",
         "GitHub.copilot",

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["apps/*"],
+      "@libs/*": ["libs/*"],
+      "nest": [".config/nx/plugins/nodejs/nest/src/index.ts"]
+    }
+  }
+}

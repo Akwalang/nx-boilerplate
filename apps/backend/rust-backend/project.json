@@ -1,0 +1,16 @@
+{
+  "name": "rust-backend",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "packages/backend/rust-backend",
+  "tags": ["apps", "backend"],
+  "targets": {
+    "docker-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["./.config/scripts/docker-build.sh rust backend {projectName}"],
+        "parallel": false
+      }
+    }
+  }
+}

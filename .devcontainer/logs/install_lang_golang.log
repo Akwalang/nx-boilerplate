@@ -1,0 +1,20 @@
+--2024-09-16 22:03:27--  https://golang.org/dl/go1.23.0.linux-amd64.tar.gz
+Resolving golang.org (golang.org)... 142.250.203.209, 2a00:1450:401b:807::2011
+Connecting to golang.org (golang.org)|142.250.203.209|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://go.dev/dl/go1.23.0.linux-amd64.tar.gz [following]
+--2024-09-16 22:03:28--  https://go.dev/dl/go1.23.0.linux-amd64.tar.gz
+Resolving go.dev (go.dev)... 216.239.32.21, 216.239.38.21, 216.239.36.21, ...
+Connecting to go.dev (go.dev)|216.239.32.21|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://dl.google.com/go/go1.23.0.linux-amd64.tar.gz [following]
+--2024-09-16 22:03:28--  https://dl.google.com/go/go1.23.0.linux-amd64.tar.gz
+Resolving dl.google.com (dl.google.com)... 216.58.208.206, 2a00:1450:401b:800::200e
+Connecting to dl.google.com (dl.google.com)|216.58.208.206|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 73590011 (70M) [application/x-gzip]
+Saving to: '/tmp/go1.23.0.linux-amd64.tar.gz'
+
+
+2024-09-16 22:03:31 (25.1 MB/s) - '/tmp/go1.23.0.linux-amd64.tar.gz' saved [73590011/73590011]
+

@@ -9,7 +9,7 @@ COPY ./.config/lang/php/nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /var/www/html
 
-COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/src /var/www/html
+COPY ./apps/${PACKAGE_TYPE}/${PACKAGE_NAME}/src /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html
 
