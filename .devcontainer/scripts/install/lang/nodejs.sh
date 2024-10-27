@@ -12,8 +12,10 @@ install_lang_nodejs() {
   apt-get install -y nodejs >> $LOG_PATH 2>&1
 
   Log "$(Purple "$NAME"): Install TypeScript"
+  npm install -g typescript ts-node >> $LOG_PATH 2>&1
 
-  npm install -g typescript >> $LOG_PATH 2>&1
+  Log "$(Purple "$NAME"): Install NX"
+  npm install -g nx >> $LOG_PATH 2>&1
 
   local tscv=$(tsc -v)
 

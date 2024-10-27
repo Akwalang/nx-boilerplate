@@ -2,6 +2,8 @@
 
 # compiled output
 dist
+build
+temp
 tmp
 /out-tsc
 
@@ -41,13 +43,24 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 
-# Exclude dev files
-*.dev.sh
-*.dev.go
-*.dev.rs
-*.dev.json
-*.dev.js
-*.dev.ts
-*.dev.php
+# Tests
+/coverage
+/.nyc_output
 
-*.log
+# dotenv environment variable files
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Exclude dev files
+*.dev.*
+*.dev.*
+*.dev.*
+*.dev.*
+*.dev.*
+*.dev.*
+*.dev.*
+
+logs*.log
+*debug.log*

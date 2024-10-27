@@ -1,0 +1,33 @@
+{
+  "name": "php-backend",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/backend/php-backend",
+  "tags": ["apps", "backend"],
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "php -S localhost:8000 -t {projectRoot}/src"
+      }
+    },
+    "test": {
+      "executor": "@nx-php/phpunit:phpunit",
+      "options": {
+        "pharPath": "../../../vendor/bin/phpunit"
+      },
+      "dependsOn": ["build"]
+    },
+    "build": {
+      "executor": "@nx-php/composer-plugin:build",
+      "dependsOn": ["^build"]
+    },
+    "docker-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["./.config/scripts/docker-build.sh php backend {projectName}"],
+        "parallel": false
+      }
+    }
+  }
+}

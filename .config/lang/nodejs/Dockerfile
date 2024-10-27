@@ -5,11 +5,11 @@ ARG PACKAGE_NAME
 
 WORKDIR /app
 
-COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/package*.json ./
+COPY ./apps/${PACKAGE_TYPE}/${PACKAGE_NAME}/package*.json ./
 
 RUN npm install
 
-COPY ./packages/${PACKAGE_TYPE}/${PACKAGE_NAME}/src ./src
+COPY ./apps/${PACKAGE_TYPE}/${PACKAGE_NAME}/ .
 
 RUN npm run build
 

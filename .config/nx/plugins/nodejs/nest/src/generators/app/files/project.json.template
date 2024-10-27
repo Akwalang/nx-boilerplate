@@ -1,0 +1,30 @@
+{
+  "name": "<%= name %>",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "packages/backend/<%= name %>",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx-go/nx-go:build",
+      "options": {
+        "main": "{projectRoot}/cmd/main.go"
+      }
+    },
+    "serve": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "main": "npm run start:dev"
+      }
+    },
+    "docker-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "./.config/scripts/docker-build.sh nodejs backend {projectName}"
+        ],
+        "parallel": false
+      }
+    }
+  }
+}

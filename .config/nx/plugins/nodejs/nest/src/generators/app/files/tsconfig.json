@@ -1,0 +1,16 @@
+{
+  "extends": "<%= langConfigRoot %>/tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}
